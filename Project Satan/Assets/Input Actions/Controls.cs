@@ -59,7 +59,7 @@ public class Controls : IInputActionCollection, IDisposable
                     ""id"": ""caa80245-9df5-4b65-86b1-5416f13773c7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
