@@ -8,6 +8,7 @@ public class BombBehavior : MonoBehaviour
     [SerializeField] float radius = 10;
     [SerializeField] float power = 50;
     [SerializeField] float speed = .5f;
+    [SerializeField] GameObject particles;
 
     public Rigidbody2D bombRB;
 
@@ -41,6 +42,8 @@ public class BombBehavior : MonoBehaviour
             }
                 
         }
+        GameObject temp = Instantiate(particles, transform.position, Quaternion.identity);
+        Destroy(temp, 1);
         Destroy(gameObject);
     }
 
