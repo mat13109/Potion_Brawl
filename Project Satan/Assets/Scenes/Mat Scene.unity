@@ -349,6 +349,10 @@ PrefabInstance:
       propertyPath: team
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
+      propertyPath: shootStrength
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4620664914322892341, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -517,6 +521,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
+      propertyPath: shootStrength
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4620664914322892341, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}

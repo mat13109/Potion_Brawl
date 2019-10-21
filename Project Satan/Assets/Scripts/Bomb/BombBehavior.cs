@@ -14,6 +14,7 @@ public class BombBehavior : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         Invoke("Explode", 3);
 
         bombRB.AddForce(transform.right * speed);
