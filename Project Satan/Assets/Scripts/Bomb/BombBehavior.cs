@@ -7,7 +7,7 @@ public class BombBehavior : MonoBehaviour
     [SerializeField] float explosionRadius = 10;
     [SerializeField] float radius = 10;
     [SerializeField] float power = 50;
-    [SerializeField] float speed = 50.0f;
+    [SerializeField] float speed = .5f;
 
     public Rigidbody2D bombRB;
 

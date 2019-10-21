@@ -86,7 +86,7 @@ MonoBehaviour:
   explosionRadius: 100
   radius: 3.5
   power: 500
-  speed: 80
+  speed: 10
   bombRB: {fileID: 4341488874842819266}
 --- !u!1 &8962153790149468897
 GameObject:
