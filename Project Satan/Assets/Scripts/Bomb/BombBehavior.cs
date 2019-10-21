@@ -7,10 +7,16 @@ public class BombBehavior : MonoBehaviour
     [SerializeField] float explosionRadius = 10;
     [SerializeField] float radius = 10;
     [SerializeField] float power = 50;
+    [SerializeField] float speed = 50.0f;
+
+    public Rigidbody2D bombRB;
 
     private void Start()
     {
         Invoke("Explode", 3);
+
+        bombRB.AddForce(transform.right * speed);
+        
     }
 
     void Explode()
