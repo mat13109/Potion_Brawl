@@ -3,23 +3,22 @@
 public static class Rigidbody2DExt
 {
 
-    public static void AddExplosionForce(this Rigidbody2D rb, float explosionForce, Vector2 explosionPosition, float explosionRadius, float upwardsModifier = 0.0F, ForceMode2D mode = ForceMode2D.Force)
+    public static void AddExplosionForce(this Rigidbody2D body, float explosionForce, Vector3 explosionPosition, float explosionRadius)
     {
-        var explosionDir = rb.position - explosionPosition;
-        var explosionDistance = explosionDir.magnitude;
+        var dir = (body.transform.position - explosionPosition);
+        float wearoff = 1 - (dir.magnitude / explosionRadius);
+        body.AddForce(dir.normalized * explosionForce * wearoff);
+    }
 
-        // Normalize without computing magnitude again
-        if (upwardsModifier == 0)
-            explosionDir /= explosionDistance;
-        else
-        {
-            // From Rigidbody.AddExplosionForce doc:
-            // If you pass a non-zero value for the upwardsModifier parameter, the direction
-            // will be modified by subtracting that value from the Y component of the centre point.
-            explosionDir.y += upwardsModifier;
-            explosionDir.Normalize();
-        }
+    public static void AddExplosionForce(this Rigidbody2D body, float explosionForce, Vector3 explosionPosition, float explosionRadius, float upliftModifier)
+    {
+        var dir = (body.transform.position - explosionPosition);
+        float wearoff = 1 - (dir.magnitude / explosionRadius);
+        Vector3 baseForce = dir.normalized * explosionForce * wearoff;
+        body.AddForce(baseForce);
 
-        rb.AddForce(Mathf.Lerp(0, explosionForce, (1 - explosionDistance)) * explosionDir, mode);
+        float upliftWearoff = 1 - upliftModifier / explosionRadius;
+        Vector3 upliftForce = Vector2.up * explosionForce * upliftWearoff;
+        body.AddForce(upliftForce);
     }
 }

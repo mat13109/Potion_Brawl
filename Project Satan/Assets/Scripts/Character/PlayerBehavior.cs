@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    bool stunned;
     // The speed of the character movement
     [SerializeField] float movSpeed;
 
@@ -37,6 +38,22 @@ public class PlayerBehavior : MonoBehaviour
     private void Update()
     {
         // moves the character with the rigidbody and prevents frame drops
-        rb.MovePosition(transform.position += new Vector3(movementValues.x, movementValues.y, 0) * Time.deltaTime * movSpeed);
+        //rb.MovePosition(transform.position += new Vector3(movementValues.x, movementValues.y, 0) * Time.deltaTime * movSpeed);
+        if (!stunned)
+            rb.GetComponent<ConstantForce2D>().force = new Vector2(movementValues.x, movementValues.y) * Time.deltaTime * movSpeed;
+    }
+
+    public void GetStunnned(float i)
+    {
+        stunned = true;
+        StartCoroutine(CooldownToGetUnstunned(i));
+    }
+
+    IEnumerator CooldownToGetUnstunned(float i)
+    {
+        StopCoroutine("CooldownToGetUnstunned");
+        yield return new WaitForSeconds(i);
+        stunned = false;
+        GetComponent<ConstantForce2D>().force = Vector2.zero;
     }
 }
