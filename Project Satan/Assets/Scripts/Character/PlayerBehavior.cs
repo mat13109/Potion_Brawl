@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehavior : MonoBehaviour
 {
     bool stunned;
     // The speed of the character movement
     [SerializeField] float movSpeed;
+    [SerializeField] int team;
+    [SerializeField] GameObject deathParticles;
+
 
     // Will contain the rigidbody of the character
     Rigidbody2D rb;
@@ -41,6 +45,30 @@ public class PlayerBehavior : MonoBehaviour
         //rb.MovePosition(transform.position += new Vector3(movementValues.x, movementValues.y, 0) * Time.deltaTime * movSpeed);
         if (!stunned)
             rb.GetComponent<ConstantForce2D>().force = new Vector2(movementValues.x, movementValues.y) * Time.deltaTime * movSpeed;
+        
+        switch (team)
+        {
+            case 1:
+                if (transform.position.x > 0)
+                {
+                    transform.position = new Vector2(0, transform.position.y);
+                }
+                break;
+            case 2:
+                if (transform.position.x < 0)
+                {
+                    transform.position = new Vector2(0, transform.position.y);
+                }
+                break;
+        }
+    }
+
+    public void KillYourself()
+    {
+        GameObject temp = Instantiate(deathParticles, transform.position, Quaternion.identity);
+        Destroy(temp, 5);
+        stunned = true;
+        Invoke("LoadNewScene", 5);
     }
 
     public void GetStunnned(float i)
@@ -55,5 +83,10 @@ public class PlayerBehavior : MonoBehaviour
         yield return new WaitForSeconds(i);
         stunned = false;
         GetComponent<ConstantForce2D>().force = Vector2.zero;
+    }
+
+    void LoadNewScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }
