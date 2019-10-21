@@ -11,12 +11,16 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] float movSpeed;
     [SerializeField] int team;
     [SerializeField] GameObject deathParticles;
+    [SerializeField] float shootStrength;
 
 
     // Will contain the rigidbody of the character
     Rigidbody2D rb;
     // Will contain the WASD/left-stick axis' values
     Vector2 movementValues;
+    // Last orientation
+    Vector2 lastMovementValues = new Vector2(0, 0);
+
 
     // Once at scene load
     private void Start()
@@ -29,7 +33,15 @@ public class PlayerBehavior : MonoBehaviour
     public void Interact(InputAction.CallbackContext context)
     {
         if (context.performed == true) // only on keydown
+        {
             Debug.Log("Interacted!");
+            Collider2D[] colliderShoot = Physics2D.OverlapCircleAll(transform.position, 1f);
+            for (int i = 0; i < colliderShoot.Length; i++)
+            {
+                if (colliderShoot[i].CompareTag("Bomb"))
+                    colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues * shootStrength);
+            }
+        }
     }
 
     // Triggered when WASD/left-stick is used
@@ -45,7 +57,12 @@ public class PlayerBehavior : MonoBehaviour
         //rb.MovePosition(transform.position += new Vector3(movementValues.x, movementValues.y, 0) * Time.deltaTime * movSpeed);
         if (!stunned)
             rb.GetComponent<ConstantForce2D>().force = new Vector2(movementValues.x, movementValues.y) * Time.deltaTime * movSpeed;
+
+        //save the movement
+        if (movementValues != new Vector2(0, 0))
+            lastMovementValues = movementValues;
         
+
         switch (team)
         {
             case 1:
