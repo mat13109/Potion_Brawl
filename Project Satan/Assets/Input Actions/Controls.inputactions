@@ -6,9 +6,33 @@
             "id": "b6c05329-7f9c-46d6-82d0-995b4ddaec52",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Up",
                     "type": "Button",
-                    "id": "ebf2213e-3e6c-47de-98ca-0049bdae6bc1",
+                    "id": "be1f9b3c-dfbd-435d-ba8f-2003016fcf62",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "726e2d5a-e7b3-46d8-8f0d-d2afc0c2ebbc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "9829d533-5ace-4a6a-9156-0fb90deaeec6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Undo",
+                    "type": "Button",
+                    "id": "c1e981c7-4b09-404b-8a7b-7ffaf8c13a06",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -17,12 +41,56 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "72fa7cb5-b305-497a-a83f-659d0dd4b930",
-                    "path": "",
+                    "id": "2f5209f5-39de-4a80-ac51-228186e1c9a2",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "New action",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b0915ea-1423-4253-96b9-2a93d6e3977b",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c65416b-9b2c-45f3-a776-30382d2457c2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e6f10a0-da34-464a-af0c-67d2c2cc072a",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6dfa32b3-88dc-45cb-98f7-6d84e5a11a85",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Undo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -19,9 +19,33 @@ public class Controls : IInputActionCollection, IDisposable
             ""id"": ""b6c05329-7f9c-46d6-82d0-995b4ddaec52"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Up"",
                     ""type"": ""Button"",
-                    ""id"": ""ebf2213e-3e6c-47de-98ca-0049bdae6bc1"",
+                    ""id"": ""be1f9b3c-dfbd-435d-ba8f-2003016fcf62"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""726e2d5a-e7b3-46d8-8f0d-d2afc0c2ebbc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""9829d533-5ace-4a6a-9156-0fb90deaeec6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Undo"",
+                    ""type"": ""Button"",
+                    ""id"": ""c1e981c7-4b09-404b-8a7b-7ffaf8c13a06"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -30,12 +54,56 @@ public class Controls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""72fa7cb5-b305-497a-a83f-659d0dd4b930"",
-                    ""path"": """",
+                    ""id"": ""2f5209f5-39de-4a80-ac51-228186e1c9a2"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""New action"",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b0915ea-1423-4253-96b9-2a93d6e3977b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c65416b-9b2c-45f3-a776-30382d2457c2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e6f10a0-da34-464a-af0c-67d2c2cc072a"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6dfa32b3-88dc-45cb-98f7-6d84e5a11a85"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Undo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -181,7 +249,10 @@ public class Controls : IInputActionCollection, IDisposable
 }");
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_Newaction = m_Menu.FindAction("New action", throwIfNotFound: true);
+        m_Menu_Up = m_Menu.FindAction("Up", throwIfNotFound: true);
+        m_Menu_Down = m_Menu.FindAction("Down", throwIfNotFound: true);
+        m_Menu_Submit = m_Menu.FindAction("Submit", throwIfNotFound: true);
+        m_Menu_Undo = m_Menu.FindAction("Undo", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
@@ -235,12 +306,18 @@ public class Controls : IInputActionCollection, IDisposable
     // Menu
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_Newaction;
+    private readonly InputAction m_Menu_Up;
+    private readonly InputAction m_Menu_Down;
+    private readonly InputAction m_Menu_Submit;
+    private readonly InputAction m_Menu_Undo;
     public struct MenuActions
     {
         private Controls m_Wrapper;
         public MenuActions(Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Menu_Newaction;
+        public InputAction @Up => m_Wrapper.m_Menu_Up;
+        public InputAction @Down => m_Wrapper.m_Menu_Down;
+        public InputAction @Submit => m_Wrapper.m_Menu_Submit;
+        public InputAction @Undo => m_Wrapper.m_Menu_Undo;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -250,16 +327,34 @@ public class Controls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_MenuActionsCallbackInterface != null)
             {
-                Newaction.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
-                Newaction.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
-                Newaction.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+                Up.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
+                Up.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
+                Up.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUp;
+                Down.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
+                Down.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
+                Down.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnDown;
+                Submit.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
+                Submit.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
+                Submit.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
+                Undo.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUndo;
+                Undo.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUndo;
+                Undo.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUndo;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Newaction.started += instance.OnNewaction;
-                Newaction.performed += instance.OnNewaction;
-                Newaction.canceled += instance.OnNewaction;
+                Up.started += instance.OnUp;
+                Up.performed += instance.OnUp;
+                Up.canceled += instance.OnUp;
+                Down.started += instance.OnDown;
+                Down.performed += instance.OnDown;
+                Down.canceled += instance.OnDown;
+                Submit.started += instance.OnSubmit;
+                Submit.performed += instance.OnSubmit;
+                Submit.canceled += instance.OnSubmit;
+                Undo.started += instance.OnUndo;
+                Undo.performed += instance.OnUndo;
+                Undo.canceled += instance.OnUndo;
             }
         }
     }
@@ -325,7 +420,10 @@ public class Controls : IInputActionCollection, IDisposable
     }
     public interface IMenuActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
+        void OnUndo(InputAction.CallbackContext context);
     }
     public interface IGameplayActions
     {

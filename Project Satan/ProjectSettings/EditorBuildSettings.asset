@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Mat Scene.unity
-    guid: cbcaee21745e84744b01a20399504aae
+    path: Assets/Scenes/Final Scenes/Menu.unity
+    guid: 57d92f2a9e9f30e46943666b6d68a652
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/FinalGameplay.unity
+    guid: 02854e28c00a302448266a696f988df2
   m_configObjects: {}
