@@ -10,18 +10,25 @@ public class BombBehavior : MonoBehaviour
     [SerializeField] float speed = .5f;
     [SerializeField] GameObject particles;
 
+    private GameObject Players;
+       
+       
+
     public Rigidbody2D bombRB;
+
+
+    
 
     private void Start()
     {
         Cursor.visible = false;
         Invoke("Explode", 3);
-
+        
         bombRB.AddForce(transform.right * speed);
         
     }
 
-    void Explode()
+    private void Explode()
     {
         Vector3 explosionPosition = transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPosition, radius);
@@ -38,7 +45,6 @@ public class BombBehavior : MonoBehaviour
                 {
                     //it's not a player
                 }
-                
                 rb.AddExplosionForce(power, explosionPosition, radius);
             }
                 
@@ -47,6 +53,8 @@ public class BombBehavior : MonoBehaviour
         Destroy(temp, 1);
         Destroy(gameObject);
     }
+
+
 
     
 }

@@ -70,14 +70,47 @@ public class PlayerBehavior : MonoBehaviour
                 {
                     transform.position = new Vector2(0, transform.position.y);
                 }
+                if (stunned == false)
+                {
+                    if (transform.position.x < -8)
+                    {
+                        transform.position = new Vector2(-8, transform.position.y);
+                    }
+                    if (transform.position.y > 4)
+                    {
+                        transform.position = new Vector2(transform.position.x, 4);
+                    }
+                    if (transform.position.y < -4)
+                    {
+                        transform.position = new Vector2(transform.position.x, -4);
+                    }
+                }
                 break;
             case 2:
                 if (transform.position.x < 0)
                 {
                     transform.position = new Vector2(0, transform.position.y);
                 }
+                if (!stunned)
+                {
+                    if (transform.position.x > 8)
+                    {
+                        transform.position = new Vector2(8, transform.position.y);
+                    }
+                    if (transform.position.y > 4)
+                    {
+                        transform.position = new Vector2(transform.position.x, 4);
+                    }
+                    if (transform.position.y < -4)
+                    {
+                        transform.position = new Vector2(transform.position.x, -4);
+                    }
+                }
+
                 break;
         }
+
+
     }
 
     public void KillYourself()
@@ -85,6 +118,7 @@ public class PlayerBehavior : MonoBehaviour
         GameObject temp = Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(temp, 5);
         stunned = true;
+        Destroy(gameObject);
         Invoke("LoadNewScene", 5);
     }
 

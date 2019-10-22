@@ -9,7 +9,7 @@ public class BombSpawn : MonoBehaviour
     public GameObject bombType;
 
     private float period = 0.0f;
-    public int spawnTime = 1;
+    public float spawnTime = 1;
 
 
     // Start is called before the first frame update
