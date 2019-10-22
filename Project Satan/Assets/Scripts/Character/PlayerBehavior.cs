@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerBehavior : MonoBehaviour
 {
     bool stunned;
+    bool dead = false;
     // The speed of the character movement
     [SerializeField] float movSpeed;
     [SerializeField] int team;
@@ -47,16 +48,30 @@ public class PlayerBehavior : MonoBehaviour
     // Triggered when WASD/left-stick is used
     public void GetMovementValues(InputAction.CallbackContext context)
     {
-        movementValues = context.ReadValue<Vector2>(); // store the value of the WASD/left-stick
+        if (!stunned)
+            movementValues = context.ReadValue<Vector2>(); // store the value of the WASD/left-stick
+        else
+            movementValues = Vector2.zero;
     }
 
     // Once per frame
     private void Update()
     {
-        // moves the character with the rigidbody and prevents frame drops
-        //rb.MovePosition(transform.position += new Vector3(movementValues.x, movementValues.y, 0) * Time.deltaTime * movSpeed);
-        if (!stunned)
-            rb.GetComponent<ConstantForce2D>().force = new Vector2(movementValues.x, movementValues.y) * Time.deltaTime * movSpeed;
+        
+                // moves the character with the rigidbody and prevents frame drops
+                switch (stunned)
+                {
+                    case true:
+                        //Player stunned => no control 
+                        break;
+                    case false:
+                        rb.velocity = movementValues * movSpeed * Time.deltaTime;
+                        break;
+                }
+               
+        // Moves on ice
+        //rb.GetComponent<ConstantForce2D>().force = new Vector2(movementValues.x, movementValues.y) * Time.deltaTime * movSpeed;
+       
 
         //save the movement
         if (movementValues != new Vector2(0, 0))
@@ -78,13 +93,16 @@ public class PlayerBehavior : MonoBehaviour
                 }
                 break;
         }
+
     }
 
     public void KillYourself()
     {
         GameObject temp = Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(temp, 5);
+        StopCoroutine("CooldownToGetUnstunned");
         stunned = true;
+        dead = true;
         Invoke("LoadNewScene", 5);
     }
 
@@ -98,7 +116,8 @@ public class PlayerBehavior : MonoBehaviour
     {
         StopCoroutine("CooldownToGetUnstunned");
         yield return new WaitForSeconds(i);
-        stunned = false;
+        if(!dead)
+            stunned = false;
         GetComponent<ConstantForce2D>().force = Vector2.zero;
     }
 

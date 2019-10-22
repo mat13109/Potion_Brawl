@@ -39,7 +39,7 @@ public class BombBehavior : MonoBehaviour
                     //it's not a player
                 }
                 
-                rb.AddExplosionForce(power, explosionPosition, radius);
+              rb.AddExplosionForce(power, explosionPosition, radius);
             }
                 
         }
