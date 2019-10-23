@@ -93,6 +93,17 @@
                     "action": "Undo",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ec7115a-74a2-4fe6-918d-606e7e5aa217",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Undo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -113,6 +124,14 @@
                     "type": "Button",
                     "id": "caa80245-9df5-4b65-86b1-5416f13773c7",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ExitToMenu",
+                    "type": "Button",
+                    "id": "39ccc79b-3b44-46e2-8ed6-07013fc1b093",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -203,6 +222,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b26b9c7-adf1-41c2-be43-366cfa01d604",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ExitToMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4deae03b-6d71-4494-8189-717a5acf61fd",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ExitToMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

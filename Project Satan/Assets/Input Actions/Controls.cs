@@ -106,6 +106,17 @@ public class Controls : IInputActionCollection, IDisposable
                     ""action"": ""Undo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ec7115a-74a2-4fe6-918d-606e7e5aa217"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Undo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -126,6 +137,14 @@ public class Controls : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""caa80245-9df5-4b65-86b1-5416f13773c7"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ExitToMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""39ccc79b-3b44-46e2-8ed6-07013fc1b093"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -218,6 +237,28 @@ public class Controls : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b26b9c7-adf1-41c2-be43-366cfa01d604"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ExitToMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4deae03b-6d71-4494-8189-717a5acf61fd"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ExitToMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -257,6 +298,7 @@ public class Controls : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+        m_Gameplay_ExitToMenu = m_Gameplay.FindAction("ExitToMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -365,12 +407,14 @@ public class Controls : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Interact;
+    private readonly InputAction m_Gameplay_ExitToMenu;
     public struct GameplayActions
     {
         private Controls m_Wrapper;
         public GameplayActions(Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
+        public InputAction @ExitToMenu => m_Wrapper.m_Gameplay_ExitToMenu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -386,6 +430,9 @@ public class Controls : IInputActionCollection, IDisposable
                 Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                ExitToMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitToMenu;
+                ExitToMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitToMenu;
+                ExitToMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitToMenu;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -396,6 +443,9 @@ public class Controls : IInputActionCollection, IDisposable
                 Interact.started += instance.OnInteract;
                 Interact.performed += instance.OnInteract;
                 Interact.canceled += instance.OnInteract;
+                ExitToMenu.started += instance.OnExitToMenu;
+                ExitToMenu.performed += instance.OnExitToMenu;
+                ExitToMenu.canceled += instance.OnExitToMenu;
             }
         }
     }
@@ -429,5 +479,6 @@ public class Controls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnExitToMenu(InputAction.CallbackContext context);
     }
 }

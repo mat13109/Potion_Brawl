@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 100
   radius: 3.5
-  power: 500
+  power: 1500
   speed: 10
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}

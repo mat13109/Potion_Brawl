@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
         {
             if (index != 0)
             {
-                index-=3;
+                index--;
             }
         }
 
@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour
         {
             if (index != numberOfButtons - 1)
             {
-                index+=3;
+                index++;
             }
         }
 
@@ -63,6 +63,9 @@ public class MenuManager : MonoBehaviour
 #else
                 Application.Quit();
 #endif
+                    break;
+                case 1://controls
+                    SceneManager.LoadScene("Controls");
                     break;
             }
         }

@@ -133,9 +133,15 @@ public class PlayerBehavior : MonoBehaviour
         Destroy(temp, 5);
         StopCoroutine("CooldownToGetUnstunned");
         stunned = true;
-        Destroy(gameObject);
         dead = true;
-        Invoke("LoadNewScene", 5);
+        Invoke("LoadNewScene", 3);
+        //Destroy(gameObject);
+        
+    }
+
+    public void GetBackToStartMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void GetStunnned(float i)
@@ -155,6 +161,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void LoadNewScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("FinalGameplay");
     }
 }

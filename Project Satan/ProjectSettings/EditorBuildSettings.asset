@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Scenes/FinalGameplay.unity
     guid: 02854e28c00a302448266a696f988df2
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Controls.unity
+    guid: fb7710cf132a14148bbc0ec8f4eaa43d
   m_configObjects: {}
