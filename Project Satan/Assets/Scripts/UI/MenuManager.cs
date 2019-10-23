@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     static public int index;
     [SerializeField] int numberOfButtons;
+    Animator warningAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +17,24 @@ public class MenuManager : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        warningAnim = GameObject.Find("Warning").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        var allGamepads = Gamepad.all;
+        if (allGamepads.Count < 2)
+        {
+            warningAnim.SetBool("warning", true);
+        } else
+        {
+            warningAnim.SetBool("warning", false);
+        }
     }
+
+
 
     public void GoUpMenu(InputAction.CallbackContext ctx)
     {
