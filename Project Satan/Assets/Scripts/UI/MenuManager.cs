@@ -55,6 +55,7 @@ public class MenuManager : MonoBehaviour
             switch (index)
             {
                 case 0: // Play
+                    ScoreManager.ResetScores();
                     SceneManager.LoadScene("FinalGameplay");
                     break;
                 case 3:// Quit

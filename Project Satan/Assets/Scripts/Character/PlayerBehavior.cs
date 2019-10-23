@@ -8,6 +8,9 @@ public class PlayerBehavior : MonoBehaviour
 {
     bool stunned;
     bool dead = false;
+
+    GameManager gm;
+
     // The speed of the character movement
     [SerializeField] float movSpeed;
     [SerializeField] int team;
@@ -28,6 +31,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         // gets the rigidbody
         rb = GetComponent<Rigidbody2D>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Triggered when E/gamepad-south is pressed
@@ -135,6 +139,14 @@ public class PlayerBehavior : MonoBehaviour
         stunned = true;
         dead = true;
         Invoke("LoadNewScene", 3);
+        if (!gm.oneisdead)
+        {
+            gm.OneIsDead();
+            gm.Shake();
+            ScoreManager.RemoveOneLifeTo(team);
+        }
+        
+        
         //Destroy(gameObject);
         
     }
