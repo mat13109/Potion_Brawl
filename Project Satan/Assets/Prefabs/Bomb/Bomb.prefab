@@ -89,8 +89,9 @@ MonoBehaviour:
   speed: 10
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}
+  puddle: {fileID: 0}
   bombRB: {fileID: 4341488874842819266}
-  type: 
+  type: explosion
 --- !u!1 &8962153790149468897
 GameObject:
   m_ObjectHideFlags: 0
