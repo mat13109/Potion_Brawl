@@ -43,7 +43,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8962153789338793968}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 066cd72ef57fa1c47bec0d29979f21a1, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 0.4
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -70,7 +70,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &8962153789338793971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 100
   radius: 3.5
-  power: 1500
+  power: 1000
   speed: 10
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}
