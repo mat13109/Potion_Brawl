@@ -38,7 +38,7 @@ public class BombSpawn : MonoBehaviour
     void Shoot()
     {
 
-        spawnTime = Random.Range(minTime, maxTime);
+        //spawnTime = Random.Range(minTime, maxTime);
         //instantiate bomb
         Instantiate(bombType, bombSpawn.transform.position, transform.rotation);
 
