@@ -1,20 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+
+public class Victory : MonoBehaviour
 {
-    public bool oneisdead = false;
-    CameraBehavior cameraBehavior;
+    [SerializeField] Text text;
+
     // Start is called before the first frame update
     void Start()
     {
-        oneisdead = false;
-        cameraBehavior = GameObject.Find("Main Camera").GetComponent<CameraBehavior>();
+        if (PlayerPrefs.GetInt("P1") > PlayerPrefs.GetInt("P2"))
+        {
+            text.text = "Wouah, c'est le joueur 1 qui a gagné !";
+        } else
+        {
+            text.text = "Wouah, c'est le joueur 2 qui a gagné !";
+        }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
     private void Awake()
     {
         InputSystem.onDeviceChange +=
@@ -39,21 +51,5 @@ public class GameManager : MonoBehaviour
                     break;
             }
         };
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OneIsDead()
-    {
-        oneisdead = true;
-    }
-
-    public void Shake()
-    {
-        cameraBehavior.StartTheShake();
     }
 }

@@ -203,6 +203,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void LoadNewScene()
     {
-        SceneManager.LoadScene("TestBombs");
+        SceneManager.LoadScene("FinalGameplay");
     }
 }

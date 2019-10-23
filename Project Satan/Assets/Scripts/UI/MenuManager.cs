@@ -21,6 +21,32 @@ public class MenuManager : MonoBehaviour
         warningAnim = GameObject.Find("Warning").GetComponent<Animator>();
     }
 
+    private void Awake()
+    {
+        InputSystem.onDeviceChange +=
+        (device, change) =>
+        {
+            switch (change)
+            {
+                case InputDeviceChange.Added:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Disconnected:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Reconnected:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Removed:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                default:
+                    // See InputDeviceChange reference for other event types.
+                    break;
+            }
+        };
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -28,10 +54,14 @@ public class MenuManager : MonoBehaviour
         if (allGamepads.Count < 2)
         {
             warningAnim.SetBool("warning", true);
+            Destroy(GameObject.Find("UIController"));
+            Destroy(GameObject.Find("UIController (1)"));
         } else
         {
             warningAnim.SetBool("warning", false);
         }
+
+        
     }
 
 

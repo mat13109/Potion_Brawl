@@ -12,6 +12,32 @@ public class controlscontroller : MonoBehaviour
         
     }
 
+    private void Awake()
+    {
+        InputSystem.onDeviceChange +=
+        (device, change) =>
+        {
+            switch (change)
+            {
+                case InputDeviceChange.Added:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Disconnected:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Reconnected:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Removed:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                default:
+                    // See InputDeviceChange reference for other event types.
+                    break;
+            }
+        };
+    }
+
     // Update is called once per frame
     void Update()
     {

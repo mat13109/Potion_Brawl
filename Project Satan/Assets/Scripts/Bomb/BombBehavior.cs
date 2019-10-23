@@ -17,12 +17,19 @@ public class BombBehavior : MonoBehaviour
 
     public Rigidbody2D bombRB;
     public string type;
+    float starttime;
 
-
+    private void Update()
+    {
+        if (Time.time - starttime > 2.5f)
+            gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
+    }
 
 
     private void Start()
     {
+        starttime = Time.time;
+        
         Cursor.visible = false;
 
         switch (type)
