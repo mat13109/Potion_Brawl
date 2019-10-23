@@ -10,6 +10,9 @@ public class BombSpawn : MonoBehaviour
 
     private float period = 0.0f;
     public float spawnTime = 1;
+    public float minTime;
+    public float maxTime;
+
 
 
     // Start is called before the first frame update
@@ -34,6 +37,8 @@ public class BombSpawn : MonoBehaviour
 
     void Shoot()
     {
+
+        spawnTime = Random.Range(minTime, maxTime);
         //instantiate bomb
         Instantiate(bombType, bombSpawn.transform.position, transform.rotation);
 

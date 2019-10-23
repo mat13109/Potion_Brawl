@@ -903,6 +903,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1162153493, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4620664914583860004, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
