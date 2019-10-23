@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4341488874842819266}
   - component: {fileID: 8962153789338793971}
   m_Layer: 8
-  m_Name: Bomb
+  m_Name: BombSiphon
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 44dd794d56a67c74a8b90f865c07a53d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07ad27ac6c03a66498b71f3ae53a9cef, type: 3}
   m_Color: {r: 1, g: 0.252882, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
