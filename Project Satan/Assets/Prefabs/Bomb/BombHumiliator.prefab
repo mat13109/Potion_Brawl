@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4341488874842819266}
   - component: {fileID: 8962153789338793971}
   m_Layer: 8
-  m_Name: BombSiphon
+  m_Name: BombHumiliator
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,14 +83,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c284c10408b66784eb29e0c1d347d282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 100
-  radius: 3.5
-  power: 1000
-  speed: 10
+  explosionRadius: 50
+  radius: 1.5
+  power: 650
+  speed: 20
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}
   bombRB: {fileID: 4341488874842819266}
-  type: siphon
+  type: humiliator
 --- !u!1 &8962153790149468897
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 07ad27ac6c03a66498b71f3ae53a9cef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 947d0db6d0555e846bb9e8ab47f2b4a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

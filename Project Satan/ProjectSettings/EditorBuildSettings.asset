@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Controls.unity
     guid: fb7710cf132a14148bbc0ec8f4eaa43d
+  - enabled: 1
+    path: Assets/Scenes/TestBombs.unity
+    guid: 2eb9a3b50b8ab82459e5d59cab3573bb
   m_configObjects: {}

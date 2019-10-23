@@ -90,6 +90,7 @@ MonoBehaviour:
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}
   bombRB: {fileID: 4341488874842819266}
+  type: 
 --- !u!1 &8962153790149468897
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 44dd794d56a67c74a8b90f865c07a53d, type: 3}
-  m_Color: {r: 1, g: 0.252882, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
