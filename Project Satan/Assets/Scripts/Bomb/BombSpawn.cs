@@ -6,7 +6,9 @@ public class BombSpawn : MonoBehaviour
 {
 
     public GameObject bombSpawn;
-    public GameObject bombType;
+    public GameObject bombExplode;
+    public GameObject bombGLue;
+    public GameObject bombHumiliation;
 
     private float period = 0.0f;
     public float spawnTime = 1;
@@ -29,13 +31,24 @@ public class BombSpawn : MonoBehaviour
         //shoot every spawnTime;
         if (period > spawnTime)
         {
-            Shoot();
+            int randType = Random.Range(0, 100);
+
+            Debug.Log(randType);
+
+            if(randType < 50)
+                Shoot(bombExplode);
+             else if (randType >=  50 && randType < 85)
+                Shoot(bombGLue);
+            else
+                Shoot(bombHumiliation);
+
+
             period = 0;
         }
         period += UnityEngine.Time.deltaTime;
     }
 
-    void Shoot()
+    void Shoot(GameObject bombType)
     {
 
         //spawnTime = Random.Range(minTime, maxTime);

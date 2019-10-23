@@ -16,6 +16,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] int team;
     [SerializeField] GameObject deathParticles;
     [SerializeField] float shootStrength;
+    [SerializeField] float Stuck = 1.0f;
 
 
     // Will contain the rigidbody of the character
@@ -32,6 +33,19 @@ public class PlayerBehavior : MonoBehaviour
         // gets the rigidbody
         rb = GetComponent<Rigidbody2D>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+    public void SetStuck(float force)
+    {
+        Stuck = force;
+        StartCoroutine(Unstuck(1.5f));
+    }
+    
+    IEnumerator Unstuck(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if(Stuck > 1)
+            SetStuck(1);
     }
 
     // Triggered when E/gamepad-south is pressed
@@ -69,7 +83,7 @@ public class PlayerBehavior : MonoBehaviour
                         //Player stunned => no control 
                         break;
                     case false:
-                        rb.velocity = movementValues * movSpeed * Time.deltaTime;
+                        rb.velocity = movementValues * movSpeed * Time.deltaTime / Stuck;
                         break;
                 }
                
@@ -151,6 +165,22 @@ public class PlayerBehavior : MonoBehaviour
         
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Glue")
+        {
+            SetStuck(4.0f);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Glue")
+        {
+            SetStuck(1.0f);
+        }
+    }
+
     public void GetBackToStartMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -173,6 +203,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void LoadNewScene()
     {
-        SceneManager.LoadScene("FinalGameplay");
+        SceneManager.LoadScene("TestBombs");
     }
 }

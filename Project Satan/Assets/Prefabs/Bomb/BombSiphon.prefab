@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4341488874842819266}
   - component: {fileID: 8962153789338793971}
   m_Layer: 8
-  m_Name: Bomb
+  m_Name: BombSiphon
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8962153789338793968}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 066cd72ef57fa1c47bec0d29979f21a1, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.4
+  m_Mass: 0.1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -70,7 +70,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8962153789338793971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,9 +89,8 @@ MonoBehaviour:
   speed: 10
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}
-  puddle: {fileID: 0}
   bombRB: {fileID: 4341488874842819266}
-  type: explosion
+  type: siphon
 --- !u!1 &8962153790149468897
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 44dd794d56a67c74a8b90f865c07a53d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07ad27ac6c03a66498b71f3ae53a9cef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

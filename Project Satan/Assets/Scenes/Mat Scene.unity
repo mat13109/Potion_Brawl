@@ -191,7 +191,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bombType
       value: 
-      objectReference: {fileID: 8962153789338793968, guid: 24be6929b50eeab4aa50a3e9eba5068f,
+      objectReference: {fileID: 8962153789338793968, guid: 614650beeceba1d489f84827a1727228,
         type: 3}
     - target: {fileID: 7775849064139897312, guid: ed9c5f6f4313c9c4ab1ae02c55ae3575,
         type: 3}
