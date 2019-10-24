@@ -20,10 +20,13 @@ public class MenuManager : MonoBehaviour
 
         warningAnim = GameObject.Find("Warning").GetComponent<Animator>();
         ScoreManager.ResetScores();
+
+        
     }
 
     private void Awake()
     {
+        Time.timeScale = 1;
         InputSystem.onDeviceChange +=
         (device, change) =>
         {
