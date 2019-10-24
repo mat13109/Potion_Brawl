@@ -18,7 +18,19 @@ public class BombBehavior : MonoBehaviour
     public Rigidbody2D bombRB;
     public string type;
 
+<<<<<<< Updated upstream
 
+=======
+    private void Update()
+    {
+        if (Time.time - starttime > 2.5f) { 
+            alpha += 20;
+            gameObject.GetComponentInChildren<Transform>().localScale += new Vector3(.03f, .03f, 0f);
+
+        //    gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 255, alpha);
+        }
+    }
+>>>>>>> Stashed changes
 
 
     private void Start()
@@ -62,10 +74,18 @@ public class BombBehavior : MonoBehaviour
                 {
                     //it's not a player
                 }
+<<<<<<< Updated upstream
                 rb.AddExplosionForce(power, explosionPosition, radius);
 
             }
                 
+=======
+                if(hit.CompareTag("Bomb")) 
+                    rb.AddExplosionForce(power/4, explosionPosition, radius);
+                else 
+                    rb.AddExplosionForce(power, explosionPosition, radius);
+                }
+>>>>>>> Stashed changes
         }
         GameObject temp = Instantiate(particles, transform.position, Quaternion.identity);
         Destroy(temp, 1);
