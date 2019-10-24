@@ -187,6 +187,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7775849064139897312, guid: ed9c5f6f4313c9c4ab1ae02c55ae3575,
+        type: 3}
+      propertyPath: bombExplode
+      value: 
+      objectReference: {fileID: 8962153789338793968, guid: 24be6929b50eeab4aa50a3e9eba5068f,
+        type: 3}
+    - target: {fileID: 7775849064139897312, guid: ed9c5f6f4313c9c4ab1ae02c55ae3575,
+        type: 3}
+      propertyPath: bombGLue
+      value: 
+      objectReference: {fileID: 8962153789338793968, guid: 614650beeceba1d489f84827a1727228,
+        type: 3}
+    - target: {fileID: 7775849064139897312, guid: ed9c5f6f4313c9c4ab1ae02c55ae3575,
+        type: 3}
+      propertyPath: bombHumiliation
+      value: 
+      objectReference: {fileID: 8962153789338793968, guid: 0e722458e7fc1cd4c919a523662494e9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed9c5f6f4313c9c4ab1ae02c55ae3575, type: 3}
 --- !u!1001 &196063637
@@ -1046,6 +1064,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1750767717, guid: e5e4400723700614ba97bf1482ce038a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1750767719, guid: e5e4400723700614ba97bf1482ce038a, type: 3}
       propertyPath: m_Offset.x
       value: -0.02797395
@@ -1053,10 +1075,6 @@ PrefabInstance:
     - target: {fileID: 1750767719, guid: e5e4400723700614ba97bf1482ce038a, type: 3}
       propertyPath: m_Size.x
       value: 3.08033
-      objectReference: {fileID: 0}
-    - target: {fileID: 1750767717, guid: e5e4400723700614ba97bf1482ce038a, type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5e4400723700614ba97bf1482ce038a, type: 3}
@@ -1481,13 +1499,13 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
-      propertyPath: shootStrength
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 1162153493, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
       propertyPath: m_Mass
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
+      propertyPath: shootStrength
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4620664914322892341, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
