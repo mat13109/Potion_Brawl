@@ -27,11 +27,12 @@ public class BombBehavior : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log("SPEEEEEEEEEED   =" + speed);
         if (Time.time - starttime > 2.5f) { 
-            alpha += 20;
-            gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
-          //  gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, alpha);
+            alpha += 0.02f;
+            if (!GameObject.Find("PauseUI").GetComponent<Animator>().GetBool("paused"))
+                gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
+            Color color = gameObject.GetComponent<SpriteRenderer>().color;
+            gameObject.GetComponent<SpriteRenderer>().color =  new Color(color.r, color.g, color.b, alpha);
         }
     }
 
