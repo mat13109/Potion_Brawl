@@ -31,9 +31,7 @@ public class BombBehavior : MonoBehaviour
         if (Time.time - starttime > 2.5f) { 
             alpha += 20;
             gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
-            Color color = gameObject.GetComponent<SpriteRenderer>().color;
-            Debug.Log(color);
-            gameObject.GetComponent<SpriteRenderer>().color =  new Color(color.r, color.g, color.b, alpha);
+          //  gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, alpha);
         }
     }
 

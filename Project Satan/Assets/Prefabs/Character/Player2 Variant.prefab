@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 4620664914583860007, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
       propertyPath: m_Name
-      value: Player2 Variant
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 4620664914583860007, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
@@ -100,12 +100,12 @@ PrefabInstance:
     - target: {fileID: 4620664914583860006, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 4.64
       objectReference: {fileID: 0}
     - target: {fileID: 4620664914583860006, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4620664914583860006, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
@@ -152,15 +152,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4620664914583860004, guid: fd5d462cf8d7b2046b2e65c848d00932,
-        type: 3}
-      propertyPath: m_NeverAutoSwitchControlSchemes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4620664914583860004, guid: fd5d462cf8d7b2046b2e65c848d00932,
-        type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: Gamepad
+    - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
+      propertyPath: movSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
       propertyPath: team
@@ -168,7 +162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
       propertyPath: shootStrength
-      value: 200
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4620664914322892341, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
