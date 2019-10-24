@@ -78,13 +78,14 @@ public class PlayerBehavior : MonoBehaviour
             movementValues = context.ReadValue<Vector2>(); // store the value of the WASD/left-stick
             playerAnimator.SetFloat("h", movementValues.x);
             playerAnimator.SetFloat("v", movementValues.y);
-            playerAnimator.SetBool("ismoving", true);
+            
         }
             
         else
         {
             movementValues = Vector2.zero;
             
+
         }
             
     }
@@ -92,6 +93,14 @@ public class PlayerBehavior : MonoBehaviour
     // Once per frame
     private void Update()
     {
+        if (rb.velocity != Vector2.zero)
+        {
+            playerAnimator.SetFloat("ismoving", 1f);
+        }
+        else
+        {
+            playerAnimator.SetFloat("ismoving", 0f);
+        }
         
                 // moves the character with the rigidbody and prevents frame drops
                 switch (stunned)
