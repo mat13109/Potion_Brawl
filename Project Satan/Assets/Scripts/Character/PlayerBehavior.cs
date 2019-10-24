@@ -61,7 +61,11 @@ public class PlayerBehavior : MonoBehaviour
             for (int i = 0; i < colliderShoot.Length; i++)
             {
                 if (colliderShoot[i].CompareTag("Bomb"))
-                    colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues * shootStrength);
+                {
+                    colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues.normalized * shootStrength);
+                    Debug.Log((lastMovementValues * shootStrength));
+                }
+                   
             }
         }
     }
@@ -99,15 +103,20 @@ public class PlayerBehavior : MonoBehaviour
                         rb.velocity = movementValues * movSpeed * Time.deltaTime / Stuck;
                         break;
                 }
-               
+
         // Moves on ice
         //rb.GetComponent<ConstantForce2D>().force = new Vector2(movementValues.x, movementValues.y) * Time.deltaTime * movSpeed;
-       
+
 
         //save the movement
         if (movementValues != new Vector2(0, 0))
             lastMovementValues = movementValues;
-        
+        else
+            if(team == 2)
+                lastMovementValues = new Vector2(-1, 0);
+            else
+                lastMovementValues = new Vector2(1, 0);
+
 
         switch (team)
         {

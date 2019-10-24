@@ -29,12 +29,12 @@ public class RotateCannon : MonoBehaviour
         if (switchTime < 50)
         {
             transform.Rotate(Vector3.back * speedRotate * Time.deltaTime);
-            Debug.Log("Switch back" + switchTime);
+            //Debug.Log("Switch back" + switchTime);
         }
         else
         {
             transform.Rotate(Vector3.forward * speedRotate * Time.deltaTime);
-            Debug.Log("Switch back" + switchTime);
+            //Debug.Log("Switch back" + switchTime);
         }
 
         if (period > TimeToRefresh)
