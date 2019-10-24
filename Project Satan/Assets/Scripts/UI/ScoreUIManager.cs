@@ -6,11 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class ScoreUIManager : MonoBehaviour
 {
+
+
+    public SpriteRenderer bg;
+
+    public Sprite sprite1;
+    public Sprite sprite2;
+
+    private float min = 0f;
+    private float max = 2f;
+    private float random;
+
+
     [SerializeField] Text p1Text, p2Text;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetRandomBackground();
+
     }
 
     // Update is called once per frame
@@ -56,6 +69,30 @@ public class ScoreUIManager : MonoBehaviour
 
     void LoadVictory()
     {
+        ChooseRandomBackground();
+        PlayerPrefs.SetFloat("terrain", Random.Range(min, max));
         SceneManager.LoadScene("Victory");
+        
+
     }
+
+    public void ChooseRandomBackground()
+    {
+        PlayerPrefs.SetFloat("terrain", Random.Range(min, max));
+
+    }
+
+    public void SetRandomBackground()
+    {
+        if (PlayerPrefs.GetFloat("terrain") > 1)
+        {
+            bg.sprite = sprite1;
+        }
+        else
+        {
+            bg.sprite = sprite2;
+        }
+    }
+
+
 }
