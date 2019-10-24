@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour
         Cursor.visible = false;
 
         warningAnim = GameObject.Find("Warning").GetComponent<Animator>();
+        ScoreManager.ResetScores();
     }
 
     private void Awake()
