@@ -240,10 +240,6 @@ public class PlayerBehavior : MonoBehaviour
     public void ExitTheGame(InputAction.CallbackContext context)
     {
         if (context.performed)
-        {
-            Time.timeScale = 1;
             SceneManager.LoadScene("Menu");
-        }
-            
     }
 }

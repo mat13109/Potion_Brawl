@@ -28,7 +28,7 @@ public class BombBehavior : MonoBehaviour
     private void Update()
     {
         //Debug.Log("SPEEEEEEEEEED   =" + speed);
-        if (Time.time - starttime > 2.5f && !GameObject.Find("PauseUI").GetComponent<Animator>().GetBool("paused")) { 
+        if (Time.time - starttime > 2.5f) { 
             alpha += 20;
             gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
             Color color = gameObject.GetComponent<SpriteRenderer>().color;
