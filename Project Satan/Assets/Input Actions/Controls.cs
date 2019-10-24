@@ -188,6 +188,14 @@ public class Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""GetBackToStartMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""796757ac-654a-4e78-874b-a38abb05926e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -311,6 +319,17 @@ public class Controls : IInputActionCollection, IDisposable
                     ""action"": ""MenuQuit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""488ad17d-4715-4444-b7e3-61e4b3f424b6"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""GetBackToStartMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -352,6 +371,7 @@ public class Controls : IInputActionCollection, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_ExitToMenu = m_Gameplay.FindAction("ExitToMenu", throwIfNotFound: true);
         m_Gameplay_MenuQuit = m_Gameplay.FindAction("MenuQuit", throwIfNotFound: true);
+        m_Gameplay_GetBackToStartMenu = m_Gameplay.FindAction("GetBackToStartMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -462,6 +482,7 @@ public class Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_ExitToMenu;
     private readonly InputAction m_Gameplay_MenuQuit;
+    private readonly InputAction m_Gameplay_GetBackToStartMenu;
     public struct GameplayActions
     {
         private Controls m_Wrapper;
@@ -470,6 +491,7 @@ public class Controls : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @ExitToMenu => m_Wrapper.m_Gameplay_ExitToMenu;
         public InputAction @MenuQuit => m_Wrapper.m_Gameplay_MenuQuit;
+        public InputAction @GetBackToStartMenu => m_Wrapper.m_Gameplay_GetBackToStartMenu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -491,6 +513,9 @@ public class Controls : IInputActionCollection, IDisposable
                 MenuQuit.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenuQuit;
                 MenuQuit.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenuQuit;
                 MenuQuit.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenuQuit;
+                GetBackToStartMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnGetBackToStartMenu;
+                GetBackToStartMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnGetBackToStartMenu;
+                GetBackToStartMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnGetBackToStartMenu;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -507,6 +532,9 @@ public class Controls : IInputActionCollection, IDisposable
                 MenuQuit.started += instance.OnMenuQuit;
                 MenuQuit.performed += instance.OnMenuQuit;
                 MenuQuit.canceled += instance.OnMenuQuit;
+                GetBackToStartMenu.started += instance.OnGetBackToStartMenu;
+                GetBackToStartMenu.performed += instance.OnGetBackToStartMenu;
+                GetBackToStartMenu.canceled += instance.OnGetBackToStartMenu;
             }
         }
     }
@@ -542,5 +570,6 @@ public class Controls : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnExitToMenu(InputAction.CallbackContext context);
         void OnMenuQuit(InputAction.CallbackContext context);
+        void OnGetBackToStartMenu(InputAction.CallbackContext context);
     }
 }

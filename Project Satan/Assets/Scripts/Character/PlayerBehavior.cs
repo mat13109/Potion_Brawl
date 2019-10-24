@@ -216,4 +216,10 @@ public class PlayerBehavior : MonoBehaviour
     {
         SceneManager.LoadScene("FinalGameplay");
     }
+
+    public void ExitTheGame(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            SceneManager.LoadScene("Menu");
+    }
 }

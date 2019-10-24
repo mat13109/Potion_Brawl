@@ -175,6 +175,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GetBackToStartMenu",
+                    "type": "Button",
+                    "id": "796757ac-654a-4e78-874b-a38abb05926e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -296,6 +304,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "MenuQuit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "488ad17d-4715-4444-b7e3-61e4b3f424b6",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "GetBackToStartMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
