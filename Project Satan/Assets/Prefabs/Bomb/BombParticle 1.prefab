@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4026193245075905398}
   - component: {fileID: 6435443980507644707}
   m_Layer: 0
-  m_Name: BombParticle
+  m_Name: BombParticle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4026193245075905397}
   serializedVersion: 6
-  lengthInSec: 0.1
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.58
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      maxColor: {r: 0.89824265, g: 0.56817377, b: 0.9056604, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4709,7 +4709,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 98d869b2b9fffdf4caf9a231f86b0e5c, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
