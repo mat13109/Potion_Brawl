@@ -29,7 +29,8 @@ public class BombBehavior : MonoBehaviour
     {
         if (Time.time - starttime > 2.5f) { 
             alpha += 0.02f;
-            gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
+            if (!GameObject.Find("PauseUI").GetComponent<Animator>().GetBool("paused"))
+                gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
             Color color = gameObject.GetComponent<SpriteRenderer>().color;
             gameObject.GetComponent<SpriteRenderer>().color =  new Color(color.r, color.g, color.b, alpha);
         }
