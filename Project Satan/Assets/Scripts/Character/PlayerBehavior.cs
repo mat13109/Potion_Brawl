@@ -11,6 +11,7 @@ public class PlayerBehavior : MonoBehaviour
 
     GameManager gm;
     Animator pauseUIAnimator;
+    [SerializeField] Animator playerAnimator;
 
     // The speed of the character movement
     [SerializeField] float movSpeed;
@@ -69,9 +70,19 @@ public class PlayerBehavior : MonoBehaviour
     public void GetMovementValues(InputAction.CallbackContext context)
     {
         if (!stunned)
+        {
             movementValues = context.ReadValue<Vector2>(); // store the value of the WASD/left-stick
+            playerAnimator.SetFloat("h", movementValues.x);
+            playerAnimator.SetFloat("v", movementValues.y);
+            playerAnimator.SetBool("ismoving", true);
+        }
+            
         else
+        {
             movementValues = Vector2.zero;
+            
+        }
+            
     }
 
     // Once per frame
