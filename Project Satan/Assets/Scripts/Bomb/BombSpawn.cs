@@ -37,9 +37,9 @@ public class BombSpawn : MonoBehaviour
 
             //Debug.Log(randType);
 
-            if(randType < 50)
+            if(randType < 75)
                 Shoot(bombExplode);
-             else if (randType >=  50 && randType < 85)
+             else if (randType >=  75 && randType < 90)
                 Shoot(bombGLue);
             else
                 Shoot(bombHumiliation);
