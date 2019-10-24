@@ -7,7 +7,10 @@ public class BombBehavior : MonoBehaviour
     [SerializeField] float explosionRadius = 10;
     [SerializeField] float radius = 10;
     [SerializeField] float power = 50;
-    [SerializeField] float speed = .5f;
+    private float speed = 10;
+    private float minSpeed;
+    private float maxSpeed;
+
     [SerializeField] GameObject particles;
     [SerializeField] GameObject puddle = null;
  //   [SerializeField] float stuckDuration = 1.0f;
@@ -18,11 +21,15 @@ public class BombBehavior : MonoBehaviour
     public Rigidbody2D bombRB;
     public string type;
     float starttime;
+    float alpha = 0;
 
     private void Update()
     {
-        if (Time.time - starttime > 2.5f)
+        if (Time.time - starttime > 2.5f) { 
+            alpha += 20;
             gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
+          //  gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, alpha);
+        }
     }
 
 
@@ -69,10 +76,11 @@ public class BombBehavior : MonoBehaviour
                 {
                     //it's not a player
                 }
-                rb.AddExplosionForce(power, explosionPosition, radius);
-
-            }
-                
+                if(hit.CompareTag("Bomb")) 
+                    rb.AddExplosionForce(power/2, explosionPosition, radius);
+                else 
+                    rb.AddExplosionForce(power, explosionPosition, radius);
+                }
         }
         GameObject temp = Instantiate(particles, transform.position, Quaternion.identity);
         Destroy(temp, 1);
@@ -113,31 +121,4 @@ public class BombBehavior : MonoBehaviour
         Destroy(temp, 1);
         Destroy(gameObject);
     }
-
-    private void Implode()
-    {
-        Vector3 explosionPosition = transform.position;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPosition, radius);
-        foreach (Collider2D hit in colliders)
-        {
-            Rigidbody2D rb = hit.GetComponent<Rigidbody2D>();
-            if (rb != null && hit.gameObject != gameObject)
-            {
-                rb.velocity = Vector2.zero;
-                try
-                {
-                    hit.GetComponent<PlayerBehavior>().GetStunnned(1);
-                }
-                catch
-                {
-                    //it's not a player
-                }
-                rb.AddExplosionForce(-power, explosionPosition, radius);
-            }
-        }
-        GameObject temp = Instantiate(particles, transform.position, Quaternion.identity);
-        Destroy(temp, 1);
-        Destroy(gameObject);
-    }
-
 }
