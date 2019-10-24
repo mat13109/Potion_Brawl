@@ -7,9 +7,9 @@ public class BombBehavior : MonoBehaviour
     [SerializeField] float explosionRadius = 10;
     [SerializeField] float radius = 10;
     [SerializeField] float power = 50;
-    private float speed = 10;
-    private float minSpeed;
-    private float maxSpeed;
+    float speed;
+    private float minSpeed = 20f;
+    private float maxSpeed = 60f;
 
     [SerializeField] GameObject particles;
     [SerializeField] GameObject puddle = null;
@@ -23,8 +23,11 @@ public class BombBehavior : MonoBehaviour
     float starttime;
     float alpha = 0;
 
+
+
     private void Update()
     {
+        //Debug.Log("SPEEEEEEEEEED   =" + speed);
         if (Time.time - starttime > 2.5f) { 
             alpha += 20;
             gameObject.transform.localScale += new Vector3(.01f, .01f, .01f);
@@ -36,7 +39,7 @@ public class BombBehavior : MonoBehaviour
     private void Start()
     {
         starttime = Time.time;
-        
+        SetRandomSpeed();
         Cursor.visible = false;
 
         switch (type)
@@ -77,7 +80,7 @@ public class BombBehavior : MonoBehaviour
                     //it's not a player
                 }
                 if(hit.CompareTag("Bomb")) 
-                    rb.AddExplosionForce(power/2, explosionPosition, radius);
+                    rb.AddExplosionForce(power/4, explosionPosition, radius);
                 else 
                     rb.AddExplosionForce(power, explosionPosition, radius);
                 }
@@ -120,5 +123,11 @@ public class BombBehavior : MonoBehaviour
         GameObject temp = Instantiate(particles, transform.position, Quaternion.identity);
         Destroy(temp, 1);
         Destroy(gameObject);
+    }
+
+    private void SetRandomSpeed()
+    {
+        speed = Random.Range(minSpeed, maxSpeed);
+        
     }
 }

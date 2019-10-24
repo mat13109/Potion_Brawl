@@ -21,7 +21,7 @@ public class BombSpawn : MonoBehaviour
     void Start()
     {
         SetRandomSpawntime();
-        Debug.Log("First bomb" + spawnTime);
+        //Debug.Log("First bomb" + spawnTime);
     }
 
     // Update is called once per frame
