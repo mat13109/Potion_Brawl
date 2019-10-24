@@ -7,7 +7,10 @@ public class BombBehavior : MonoBehaviour
     [SerializeField] float explosionRadius = 10;
     [SerializeField] float radius = 10;
     [SerializeField] float power = 50;
-    [SerializeField] float speed = .5f;
+    private float speed = 10;
+    private float minSpeed;
+    private float maxSpeed;
+
     [SerializeField] GameObject particles;
     [SerializeField] GameObject puddle = null;
  //   [SerializeField] float stuckDuration = 1.0f;
