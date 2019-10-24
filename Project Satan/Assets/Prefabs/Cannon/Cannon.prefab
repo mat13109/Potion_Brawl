@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5dfd877853ad1418076347f59b94e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRotate: 100
+  speedRotate: 200
 --- !u!114 &7775849064139897312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,8 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombSpawn: {fileID: 8872946794116182390}
-  bombType: {fileID: 0}
+  bombExplode: {fileID: 0}
+  bombGLue: {fileID: 0}
+  bombHumiliation: {fileID: 0}
   spawnTime: 1
+  minTime: 0
+  maxTime: 0
 --- !u!1 &8872946795283167535
 GameObject:
   m_ObjectHideFlags: 0
