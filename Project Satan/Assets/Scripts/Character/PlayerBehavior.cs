@@ -8,6 +8,9 @@ public class PlayerBehavior : MonoBehaviour
 {
     bool stunned;
     bool dead = false;
+
+    GameManager gm;
+
     // The speed of the character movement
     [SerializeField] float movSpeed;
     [SerializeField] int team;
@@ -29,6 +32,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         // gets the rigidbody
         rb = GetComponent<Rigidbody2D>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void SetStuck(float force)
@@ -149,6 +153,14 @@ public class PlayerBehavior : MonoBehaviour
         stunned = true;
         dead = true;
         Invoke("LoadNewScene", 3);
+        if (!gm.oneisdead)
+        {
+            gm.OneIsDead();
+            gm.Shake();
+            ScoreManager.RemoveOneLifeTo(team);
+        }
+        
+        
         //Destroy(gameObject);
         
     }
@@ -191,6 +203,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void LoadNewScene()
     {
-        SceneManager.LoadScene("TestBombs");
+        SceneManager.LoadScene("FinalGameplay");
     }
 }

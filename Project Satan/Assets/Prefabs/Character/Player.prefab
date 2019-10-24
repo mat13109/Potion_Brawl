@@ -156,10 +156,6 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ebf2213e-3e6c-47de-98ca-0049bdae6bc1
-    m_ActionName: Menu/New action
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1275901282}
         m_MethodName: GetMovementValues
@@ -189,6 +185,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: caa80245-9df5-4b65-86b1-5416f13773c7
     m_ActionName: Gameplay/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be1f9b3c-dfbd-435d-ba8f-2003016fcf62
+    m_ActionName: Menu/Up[/Keyboard/w,/XInputControllerWindows/leftStick/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 726e2d5a-e7b3-46d8-8f0d-d2afc0c2ebbc
+    m_ActionName: Menu/Down[/Keyboard/s,/XInputControllerWindows/leftStick/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9829d533-5ace-4a6a-9156-0fb90deaeec6
+    m_ActionName: Menu/Submit[/Keyboard/e,/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c1e981c7-4b09-404b-8a7b-7ffaf8c13a06
+    m_ActionName: Menu/Undo[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39ccc79b-3b44-46e2-8ed6-07013fc1b093
+    m_ActionName: Gameplay/ExitToMenu[/Keyboard/escape,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 052c1903-31a3-4866-9975-e3c5ebe5ec3d
@@ -206,7 +222,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 0.7
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -242,3 +258,4 @@ MonoBehaviour:
   team: 1
   deathParticles: {fileID: 5720211621964866341, guid: c8f35d7e31bebfe4f802d2658563dd37,
     type: 3}
+  shootStrength: 0

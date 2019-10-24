@@ -62,7 +62,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 0.4
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -85,8 +85,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 100
   radius: 3.5
-  power: 1500
-  speed: 10
+  power: 1000
+  speed: 50
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}
   puddle: {fileID: 0}
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 8962153790149468897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2634058, y: 0.2634058, z: 0.2634058}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8962153789338793969}
   m_RootOrder: 0

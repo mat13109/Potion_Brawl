@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     static public int index;
     [SerializeField] int numberOfButtons;
+    Animator warningAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +17,55 @@ public class MenuManager : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        warningAnim = GameObject.Find("Warning").GetComponent<Animator>();
+        ScoreManager.ResetScores();
+    }
+
+    private void Awake()
+    {
+        InputSystem.onDeviceChange +=
+        (device, change) =>
+        {
+            switch (change)
+            {
+                case InputDeviceChange.Added:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Disconnected:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Reconnected:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                case InputDeviceChange.Removed:
+                    SceneManager.LoadScene("Menu");
+                    break;
+                default:
+                    // See InputDeviceChange reference for other event types.
+                    break;
+            }
+        };
     }
 
     // Update is called once per frame
     void Update()
     {
+        var allGamepads = Gamepad.all;
+        if (allGamepads.Count < 2)
+        {
+            warningAnim.SetBool("warning", true);
+            Destroy(GameObject.Find("UIController"));
+            Destroy(GameObject.Find("UIController (1)"));
+        } else
+        {
+            warningAnim.SetBool("warning", false);
+        }
+
         
     }
+
+
 
     public void GoUpMenu(InputAction.CallbackContext ctx)
     {
@@ -55,6 +98,7 @@ public class MenuManager : MonoBehaviour
             switch (index)
             {
                 case 0: // Play
+                    ScoreManager.ResetScores();
                     SceneManager.LoadScene("FinalGameplay");
                     break;
                 case 3:// Quit
