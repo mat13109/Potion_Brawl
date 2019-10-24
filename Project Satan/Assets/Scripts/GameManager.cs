@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     {
         oneisdead = false;
         cameraBehavior = GameObject.Find("Main Camera").GetComponent<CameraBehavior>();
+        ScoreManager.ResetScores();
     }
 
     private void Awake()
