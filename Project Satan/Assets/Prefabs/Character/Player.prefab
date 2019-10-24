@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4620664914322892341}
   - component: {fileID: 4620664914322892340}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4620664914322892342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 0.09613202, y: 0.09613202, z: 0.09613202}
   m_Children: []
   m_Father: {fileID: 4620664914583860006}
   m_RootOrder: 0
@@ -68,10 +68,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 22057878fdfb228408f6ae1ceacc9de1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1162153493}
   - component: {fileID: 1275901281}
   - component: {fileID: 1275901282}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -113,6 +113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4620664914322892341}
+  - {fileID: 1890718548550340415}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -188,25 +189,66 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: be1f9b3c-dfbd-435d-ba8f-2003016fcf62
-    m_ActionName: Menu/Up[/Keyboard/w,/XInputControllerWindows/leftStick/up]
+    m_ActionName: Menu/Up[/Keyboard/w]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 726e2d5a-e7b3-46d8-8f0d-d2afc0c2ebbc
-    m_ActionName: Menu/Down[/Keyboard/s,/XInputControllerWindows/leftStick/down]
+    m_ActionName: Menu/Down[/Keyboard/s]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 9829d533-5ace-4a6a-9156-0fb90deaeec6
-    m_ActionName: Menu/Submit[/Keyboard/e,/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+    m_ActionName: Menu/Submit[/Keyboard/e,/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: c1e981c7-4b09-404b-8a7b-7ffaf8c13a06
-    m_ActionName: Menu/Undo[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+    m_ActionName: Menu/Undo[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1275901282}
+        m_MethodName: GetBackToStartMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 39ccc79b-3b44-46e2-8ed6-07013fc1b093
-    m_ActionName: Gameplay/ExitToMenu[/Keyboard/escape,/XInputControllerWindows/start]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+    m_ActionName: Gameplay/ExitToMenu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1275901282}
+        m_MethodName: QuitMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d92c2f23-96fd-4437-b5ad-cff54d48b327
+    m_ActionName: Gameplay/MenuQuit[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1275901282}
+        m_MethodName: ExitTheGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 796757ac-654a-4e78-874b-a38abb05926e
+    m_ActionName: Gameplay/GetBackToStartMenu[/XInputControllerWindows/buttonWest]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: 052c1903-31a3-4866-9975-e3c5ebe5ec3d
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -258,4 +300,80 @@ MonoBehaviour:
   team: 1
   deathParticles: {fileID: 5720211621964866341, guid: c8f35d7e31bebfe4f802d2658563dd37,
     type: 3}
-  shootStrength: 0
+  shootStrength: 200
+  Stuck: 1
+--- !u!1001 &4620664914499635858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4620664914583860006}
+    m_Modifications:
+    - target: {fileID: 7552703348682920397, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_Name
+      value: Shadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.478
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 923458be4ae2dec41a2edb79f36a1f9a, type: 3}
+--- !u!4 &1890718548550340415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6494974350423836077, guid: 923458be4ae2dec41a2edb79f36a1f9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4620664914499635858}
+  m_PrefabAsset: {fileID: 0}
