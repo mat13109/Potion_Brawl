@@ -10,6 +10,7 @@ public class PlayerBehavior : MonoBehaviour
     bool dead = false;
 
     GameManager gm;
+    Animator pauseUIAnimator;
 
     // The speed of the character movement
     [SerializeField] float movSpeed;
@@ -33,6 +34,7 @@ public class PlayerBehavior : MonoBehaviour
         // gets the rigidbody
         rb = GetComponent<Rigidbody2D>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pauseUIAnimator = GameObject.Find("PauseUI").GetComponent<Animator>();
     }
 
     public void SetStuck(float force)
@@ -181,9 +183,18 @@ public class PlayerBehavior : MonoBehaviour
         }
     }
 
-    public void GetBackToStartMenu()
+    public void GetBackToStartMenu(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene("Menu");
+        if (context.performed)
+            pauseUIAnimator.SetBool("paused", !pauseUIAnimator.GetBool("paused"));
+        
+    }
+
+    public void QuitMenu()
+    {
+        if (pauseUIAnimator.GetBool("paused"))
+            pauseUIAnimator.SetBool("paused", false);
+
     }
 
     public void GetStunnned(float i)

@@ -167,6 +167,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "MenuQuit",
+                    "type": "Button",
+                    "id": "d92c2f23-96fd-4437-b5ad-cff54d48b327",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -277,6 +285,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "ExitToMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1900d1f1-6e04-467a-abc2-b6f609157049",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MenuQuit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
