@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public bool oneisdead = false;
     CameraBehavior cameraBehavior;
+    Animator menuPauseAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         oneisdead = false;
         cameraBehavior = GameObject.Find("Main Camera").GetComponent<CameraBehavior>();
-        
+        menuPauseAnimator = GameObject.Find("PauseUI").GetComponent<Animator>();
     }
 
     private void Awake()
@@ -45,7 +47,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (menuPauseAnimator.GetBool("paused") == true)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void OneIsDead()
