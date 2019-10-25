@@ -102,6 +102,8 @@ public class PlayerBehavior : MonoBehaviour
     // Once per frame
     private void Update()
     {
+        playerAnimator.SetBool("stunned", stunned);
+
         if (rb.velocity != Vector2.zero)
         {
             playerAnimator.SetFloat("h", rb.velocity.x);
@@ -112,9 +114,10 @@ public class PlayerBehavior : MonoBehaviour
         {
             playerAnimator.SetFloat("ismoving", 0f);
         }
-        
-                // moves the character with the rigidbody and prevents frame drops
-                switch (stunned)
+
+
+        // moves the character with the rigidbody and prevents frame drops
+        switch (stunned)
                 {
                     case true:
                         //Player stunned => no control 
