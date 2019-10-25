@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 79d8f46fe68a12c469f7693e77c28c76
+guid: b7ec39ae42925254fbd3c03ba417670c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8601405493779240306
-    second: humiliator_anims_0
+      213: 6652599298412092227
+    second: sprite_anim_canon_0
   - first:
-      213: -893676691404875080
-    second: humiliator_anims_17
+      213: -4345094888667105042
+    second: sprite_anim_canon_1
   - first:
-      213: 8947247470524043355
-    second: humiliator_anims_19
+      213: 540050829136056120
+    second: sprite_anim_canon_2
   - first:
-      213: 1514368547464030298
-    second: humiliator_anims_20
-  - first:
-      213: 7566713119028394660
-    second: humiliator_anims_18
+      213: -6432226635224445865
+    second: sprite_anim_canon_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,106 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: humiliator_anims_0
+      name: sprite_anim_canon_0
       rect:
         serializedVersion: 2
-        x: 250
-        y: 1300
-        width: 479
-        height: 434
+        x: 61
+        y: 1387
+        width: 401
+        height: 278
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 639c5fe89c53d6a4491971edcfc904be
-      internalID: 8601405493779240306
+      spriteID: 4356e367c65ade94099d63f6078e0319
+      internalID: 6652599298412092227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: humiliator_anims_17
+      name: sprite_anim_canon_1
       rect:
         serializedVersion: 2
-        x: 106
-        y: 378
-        width: 804
-        height: 712
+        x: 540
+        y: 1355
+        width: 460
+        height: 332
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9e2b3ab2c2c331409ed398724cea139
-      internalID: -893676691404875080
+      spriteID: 8929146fb1a309844bc93fcc36a486bd
+      internalID: -4345094888667105042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: humiliator_anims_19
+      name: sprite_anim_canon_2
       rect:
         serializedVersion: 2
-        x: 1021
-        y: 195
-        width: 278
-        height: 280
+        x: 1084
+        y: 1338
+        width: 472
+        height: 375
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672f32ed95ccd0f4ba57965a573182e2
-      internalID: 8947247470524043355
+      spriteID: ac2143519d1af9f40bf1ac0e6c5c2489
+      internalID: 540050829136056120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: humiliator_anims_20
+      name: sprite_anim_canon_3
       rect:
         serializedVersion: 2
-        x: 1507
-        y: 195
-        width: 278
-        height: 280
+        x: 1628
+        y: 1386
+        width: 386
+        height: 252
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c52a7f4244c07b844ac305f59e1eeabe
-      internalID: 1514368547464030298
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: humiliator_anims_18
-      rect:
-        serializedVersion: 2
-        x: 973
-        y: 1083
-        width: 872
-        height: 763
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2436ad3f1a89124287ea69922f57fad
-      internalID: 7566713119028394660
+      spriteID: 41a00a65dfc611841a50c434db6d38bc
+      internalID: -6432226635224445865
       vertices: []
       indices: 
       edges: []
