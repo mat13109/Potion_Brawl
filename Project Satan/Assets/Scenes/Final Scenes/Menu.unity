@@ -961,7 +961,7 @@ PrefabInstance:
     - target: {fileID: 5650553557392123739, guid: 5ce51db402453b24aa1266f721bc0cc1,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.46666667
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5538134306397634713, guid: 5ce51db402453b24aa1266f721bc0cc1, type: 3}
@@ -1769,7 +1769,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "G\xE9n\xE9rique"
+  m_Text: "Cr\xE9dits"
 --- !u!222 &1919735306
 CanvasRenderer:
   m_ObjectHideFlags: 0
