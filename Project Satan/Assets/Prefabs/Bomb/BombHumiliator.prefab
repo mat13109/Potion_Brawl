@@ -91,6 +91,9 @@ MonoBehaviour:
   particles: {fileID: 4026193245075905397, guid: 5cad00f3620f58b40b84665e0f700fb2,
     type: 3}
   puddle: {fileID: 0}
+  boum: {fileID: 0}
+  bombinette: {fileID: 7402980476160952601, guid: d1bf0168aaddbf045b896f57506123cb,
+    type: 3}
   bombRB: {fileID: 4341488874842819266}
   type: humiliator
 --- !u!212 &-743745722883570682
