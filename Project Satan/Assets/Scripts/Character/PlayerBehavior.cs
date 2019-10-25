@@ -56,7 +56,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (context.performed == true) // only on keydown
         {
-            Debug.Log("Interacted!");
+            playerAnimator.SetTrigger("kick");
             Collider2D[] colliderShoot = Physics2D.OverlapCircleAll(transform.position, 1f);
             for (int i = 0; i < colliderShoot.Length; i++)
             {
