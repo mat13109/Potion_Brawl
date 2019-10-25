@@ -149,6 +149,10 @@ public class PlayerBehavior : MonoBehaviour
                     {
                         transform.position = new Vector2(transform.position.x, -4);
                     }
+                    if (transform.position.x > -1)
+                    {
+                        transform.position = new Vector2(-1, transform.position.y);
+                    }
                 }
                 break;
             case 2:
@@ -169,6 +173,10 @@ public class PlayerBehavior : MonoBehaviour
                     if (transform.position.y < -4)
                     {
                         transform.position = new Vector2(transform.position.x, -4);
+                    }
+                    if (transform.position.x < 1)
+                    {
+                        transform.position = new Vector2(1, transform.position.y);
                     }
                 }
 
