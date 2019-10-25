@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     CameraBehavior cameraBehavior;
     Animator menuPauseAnimator;
 
+    ReadyGo readyGo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +49,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (menuPauseAnimator.GetBool("paused") == true)
+        if (menuPauseAnimator.GetBool("paused") == true && readyGo.ready)
         {
             Time.timeScale = 0;
         }
-        else
+        if (!menuPauseAnimator.GetBool("paused") == true && readyGo.ready)
         {
             Time.timeScale = 1;
         }
