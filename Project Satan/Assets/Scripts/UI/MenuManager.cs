@@ -123,6 +123,12 @@ public class MenuManager : MonoBehaviour
                     GetComponent<AudioSource>().Play();
                     SceneManager.LoadScene("Controls");
                     break;
+
+                case 2://credits
+                    GetComponent<AudioSource>().clip = selectSound;
+                    GetComponent<AudioSource>().Play();
+                    SceneManager.LoadScene("Credits");
+                    break;
             }
         }
         

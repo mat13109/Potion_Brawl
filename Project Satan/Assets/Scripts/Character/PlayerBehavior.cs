@@ -74,7 +74,8 @@ public class PlayerBehavior : MonoBehaviour
                         StartCoroutine(StretchBomb(colliderShoot[i].gameObject));
                         
                         audioSourceKick.clip = kick;
-                        audioSourceKick.volume = .5f;
+                        audioSourceKick.pitch = Random.Range(.9f, 1.1f);
+                        audioSourceKick.volume = .3f;
                         audioSourceKick.Play();
                     }
 
