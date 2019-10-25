@@ -90,6 +90,7 @@ MonoBehaviour:
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}
   puddle: {fileID: 0}
+  boum: {fileID: 2314133482255200260, guid: 5b25a3068f76cda44bd0a127f1cd20e5, type: 3}
   bombRB: {fileID: 4341488874842819266}
   type: explosion
 --- !u!212 &-8089253312065822846

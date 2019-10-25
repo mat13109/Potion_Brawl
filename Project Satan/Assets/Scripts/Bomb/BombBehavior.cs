@@ -13,6 +13,8 @@ public class BombBehavior : MonoBehaviour
 
     [SerializeField] GameObject particles;
     [SerializeField] GameObject puddle = null;
+    public GameObject boum;
+
  //   [SerializeField] float stuckDuration = 1.0f;
     private GameObject Players;
        
@@ -87,6 +89,8 @@ public class BombBehavior : MonoBehaviour
                 }
         }
         GameObject temp = Instantiate(particles, transform.position, Quaternion.identity);
+        GameObject explo = Instantiate(boum, transform.localPosition, Quaternion.identity);
+        Destroy(explo, 1);
         Destroy(temp, 1);
         Destroy(gameObject);
     }
