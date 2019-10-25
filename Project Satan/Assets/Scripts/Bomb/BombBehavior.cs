@@ -98,8 +98,10 @@ public class BombBehavior : MonoBehaviour
     private void Glued()
     {
         Vector3 explosionPosition = transform.position;
-        Instantiate(puddle, explosionPosition, Quaternion.identity);
+        GameObject gl = Instantiate(puddle, explosionPosition, Quaternion.identity);
+        Destroy(gl, 4);
         Destroy(gameObject);
+
     }
 
     private void Humiliation()

@@ -47,7 +47,7 @@ public class PlayerBehavior : MonoBehaviour
     public void SetStuck(float force)
     {
         Stuck = force;
-        StartCoroutine(Unstuck(1.5f));
+        StartCoroutine(Unstuck(4f));
     }
     
     IEnumerator Unstuck(float duration)

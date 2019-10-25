@@ -9,6 +9,6 @@ public class PuddleBehavior : MonoBehaviour
     void Start()
     {
         GetComponent<AudioSource>().Play();
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 4f);
     }
 }
