@@ -64,6 +64,6 @@ public class BombSpawn : MonoBehaviour
     void SetRandomSpawntime()
     {
         spawnTime = Random.Range(minTime, maxTime);
-        Debug.Log("Next bomb spawn in " + spawnTime + " seconds.");
+        //Debug.Log("Next bomb spawn in " + spawnTime + " seconds.");
     }
 }
