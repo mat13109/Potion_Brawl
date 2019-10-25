@@ -76,8 +76,7 @@ public class PlayerBehavior : MonoBehaviour
         if (!stunned)
         {
             movementValues = context.ReadValue<Vector2>(); // store the value of the WASD/left-stick
-            playerAnimator.SetFloat("h", movementValues.x);
-            playerAnimator.SetFloat("v", movementValues.y);
+            
             
         }
             
@@ -95,6 +94,8 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (rb.velocity != Vector2.zero)
         {
+            playerAnimator.SetFloat("h", rb.velocity.x);
+            playerAnimator.SetFloat("v", rb.velocity.y);
             playerAnimator.SetFloat("ismoving", 1f);
         }
         else
@@ -221,7 +222,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public void QuitMenu()
     {
-        if (pauseUIAnimator.GetBool("paused"))
+        if (pauseUIAnimator.GetBool("paused") == true)
             pauseUIAnimator.SetBool("paused", false);
 
     }
@@ -248,7 +249,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public void ExitTheGame(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && GameObject.Find("PauseUI").GetComponent<Animator>().GetBool("paused"))
             SceneManager.LoadScene("Menu");
     }
 }

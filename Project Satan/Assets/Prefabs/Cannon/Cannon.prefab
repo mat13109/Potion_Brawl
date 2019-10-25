@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombSpawn: {fileID: 8872946794116182390}
-  bombExplode: {fileID: 8962153789338793968, guid: 0e722458e7fc1cd4c919a523662494e9,
+  bombExplode: {fileID: 8962153789338793968, guid: 24be6929b50eeab4aa50a3e9eba5068f,
     type: 3}
-  bombGLue: {fileID: 8962153789338793968, guid: 0e722458e7fc1cd4c919a523662494e9,
+  bombGLue: {fileID: 8962153789338793968, guid: 614650beeceba1d489f84827a1727228,
     type: 3}
   bombHumiliation: {fileID: 8962153789338793968, guid: 0e722458e7fc1cd4c919a523662494e9,
     type: 3}

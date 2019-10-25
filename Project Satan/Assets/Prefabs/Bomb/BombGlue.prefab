@@ -87,7 +87,7 @@ MonoBehaviour:
   explosionRadius: 50
   radius: 1.5
   power: 650
-  particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
+  particles: {fileID: 4026193245075905397, guid: e95ea6f33506fcd4a8b3a7e805ba1ae2,
     type: 3}
   puddle: {fileID: 4460047629037064049, guid: db9ea26833424e4439d39b6b8aa51340, type: 3}
   bombRB: {fileID: 4341488874842819266}

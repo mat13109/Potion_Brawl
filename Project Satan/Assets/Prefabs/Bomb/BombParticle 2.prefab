@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4026193245075905399}
   - component: {fileID: 4026193245075905398}
   - component: {fileID: 6435443980507644707}
-  - component: {fileID: -3107353437839284075}
+  - component: {fileID: -4679202764597101885}
   m_Layer: 0
-  m_Name: BombParticle 1
+  m_Name: BombParticle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4026193245075905397}
   serializedVersion: 6
-  lengthInSec: 0.05
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -117,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.58
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -224,7 +224,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.89824265, g: 0.56817377, b: 0.9056604, a: 1}
+      maxColor: {r: 0.6603774, g: 0.28969383, b: 0.28969383, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4710,7 +4710,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 98d869b2b9fffdf4caf9a231f86b0e5c, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4767,7 +4767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb706425b69dd542a2d40c3d37e5293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &-3107353437839284075
+--- !u!82 &-4679202764597101885
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4778,7 +4778,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3a8819d1f718a1b4a8c95c190cf11fc3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

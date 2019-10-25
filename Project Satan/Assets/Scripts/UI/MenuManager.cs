@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     static public int index;
     [SerializeField] int numberOfButtons;
     Animator warningAnim;
+    [SerializeField] AudioClip selectSound;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +78,7 @@ public class MenuManager : MonoBehaviour
             if (index != 0)
             {
                 index--;
+                GetComponent<AudioSource>().Play();
             }
         }
 
@@ -89,6 +91,7 @@ public class MenuManager : MonoBehaviour
             if (index != numberOfButtons - 1)
             {
                 index++;
+                GetComponent<AudioSource>().Play();
             }
         }
 
@@ -102,16 +105,22 @@ public class MenuManager : MonoBehaviour
             {
                 case 0: // Play
                     ScoreManager.ResetScores();
+                    GetComponent<AudioSource>().clip = selectSound;
+                    GetComponent<AudioSource>().Play();
                     SceneManager.LoadScene("FinalGameplay");
                     break;
                 case 3:// Quit
+                    GetComponent<AudioSource>().clip = selectSound;
+                    GetComponent<AudioSource>().Play();
 #if UNITY_EDITOR
                     UnityEditor.EditorApplication.isPlaying = false;
 #else
-                Application.Quit();
+                    Application.Quit();
 #endif
                     break;
                 case 1://controls
+                    GetComponent<AudioSource>().clip = selectSound;
+                    GetComponent<AudioSource>().Play();
                     SceneManager.LoadScene("Controls");
                     break;
             }
