@@ -56,13 +56,14 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (context.performed == true) // only on keydown
         {
-            Debug.Log("Interacted!");
+            playerAnimator.SetTrigger("kick");
             Collider2D[] colliderShoot = Physics2D.OverlapCircleAll(transform.position, 1f);
             for (int i = 0; i < colliderShoot.Length; i++)
             {
                 if (colliderShoot[i].CompareTag("Bomb"))
                 {
                     colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues.normalized * shootStrength);
+                    StartCoroutine(StretchBomb(colliderShoot[i].gameObject));
                     Debug.Log((lastMovementValues * shootStrength));
                 }
                    
@@ -77,16 +78,11 @@ public class PlayerBehavior : MonoBehaviour
         {
             movementValues = context.ReadValue<Vector2>(); // store the value of the WASD/left-stick
             
-            
         }
-            
         else
         {
             movementValues = Vector2.zero;
-            
-
         }
-            
     }
 
     // Once per frame
@@ -259,5 +255,21 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (context.performed && GameObject.Find("PauseUI").GetComponent<Animator>().GetBool("paused"))
             SceneManager.LoadScene("Menu");
+    }
+
+    IEnumerator StretchBomb(GameObject colliderShoot)
+    {
+        float stretchSize = 0.3f;
+        while(colliderShoot.transform.localScale.x > stretchSize)
+        {
+            colliderShoot.transform.localScale = new Vector3(colliderShoot.transform.localScale.x - 0.1f, 1, 1);
+            yield return null;
+        }
+
+        while (colliderShoot.transform.localScale.x < 1)
+        {
+            colliderShoot.transform.localScale = new Vector3(colliderShoot.transform.localScale.x + 0.1f, 1, 1);
+            yield return null;
+        }
     }
 }
