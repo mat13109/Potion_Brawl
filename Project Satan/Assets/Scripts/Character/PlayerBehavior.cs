@@ -56,18 +56,22 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (context.performed == true) // only on keydown
         {
-            playerAnimator.SetTrigger("kick");
-            Collider2D[] colliderShoot = Physics2D.OverlapCircleAll(transform.position, 1f);
-            for (int i = 0; i < colliderShoot.Length; i++)
+            if (!stunned)
             {
-                if (colliderShoot[i].CompareTag("Bomb"))
+                playerAnimator.SetTrigger("kick");
+                Collider2D[] colliderShoot = Physics2D.OverlapCircleAll(transform.position, 1f);
+                for (int i = 0; i < colliderShoot.Length; i++)
                 {
-                    colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues.normalized * shootStrength);
-                    StartCoroutine(StretchBomb(colliderShoot[i].gameObject));
-                    Debug.Log((lastMovementValues * shootStrength));
+                    if (colliderShoot[i].CompareTag("Bomb"))
+                    {
+                        colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues.normalized * shootStrength);
+                        StartCoroutine(StretchBomb(colliderShoot[i].gameObject));
+                        Debug.Log((lastMovementValues * shootStrength));
+                    }
+
                 }
-                   
             }
+                
         }
     }
 
