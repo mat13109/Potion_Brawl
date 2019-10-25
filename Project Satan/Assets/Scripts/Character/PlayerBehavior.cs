@@ -62,21 +62,25 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (context.performed == true) // only on keydown
         {
-            playerAnimator.SetTrigger("kick");
-            
-            
-            Collider2D[] colliderShoot = Physics2D.OverlapCircleAll(transform.position, 1f);
-            for (int i = 0; i < colliderShoot.Length; i++)
+            if (!stunned)
             {
-                if (colliderShoot[i].CompareTag("Bomb"))
+                playerAnimator.SetTrigger("kick");
+                Collider2D[] colliderShoot = Physics2D.OverlapCircleAll(transform.position, 1f);
+                for (int i = 0; i < colliderShoot.Length; i++)
                 {
-                    colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues.normalized * shootStrength);
-                    audioSourceKick.clip = kick;
-                    audioSourceKick.volume = .5f;
-                    audioSourceKick.Play();
+                    if (colliderShoot[i].CompareTag("Bomb"))
+                    {
+                        colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues.normalized * shootStrength);
+                        StartCoroutine(StretchBomb(colliderShoot[i].gameObject));
+                        
+                        audioSourceKick.clip = kick;
+                        audioSourceKick.volume = .5f;
+                        audioSourceKick.Play();
+                    }
+
                 }
-                   
             }
+                
         }
     }
 
@@ -87,16 +91,11 @@ public class PlayerBehavior : MonoBehaviour
         {
             movementValues = context.ReadValue<Vector2>(); // store the value of the WASD/left-stick
             
-            
         }
-            
         else
         {
             movementValues = Vector2.zero;
-            
-
         }
-            
     }
 
     // Once per frame
@@ -159,6 +158,10 @@ public class PlayerBehavior : MonoBehaviour
                     {
                         transform.position = new Vector2(transform.position.x, -4);
                     }
+                    if (transform.position.x > -1)
+                    {
+                        transform.position = new Vector2(-1, transform.position.y);
+                    }
                 }
                 break;
             case 2:
@@ -179,6 +182,10 @@ public class PlayerBehavior : MonoBehaviour
                     if (transform.position.y < -4)
                     {
                         transform.position = new Vector2(transform.position.x, -4);
+                    }
+                    if (transform.position.x < 1)
+                    {
+                        transform.position = new Vector2(1, transform.position.y);
                     }
                 }
 
@@ -266,5 +273,21 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (context.performed && GameObject.Find("PauseUI").GetComponent<Animator>().GetBool("paused"))
             SceneManager.LoadScene("Menu");
+    }
+
+    IEnumerator StretchBomb(GameObject colliderShoot)
+    {
+        float stretchSize = 0.3f;
+        while(colliderShoot.transform.localScale.x > stretchSize)
+        {
+            colliderShoot.transform.localScale = new Vector3(colliderShoot.transform.localScale.x - 0.1f, 1, 1);
+            yield return null;
+        }
+
+        while (colliderShoot.transform.localScale.x < 1)
+        {
+            colliderShoot.transform.localScale = new Vector3(colliderShoot.transform.localScale.x + 0.1f, 1, 1);
+            yield return null;
+        }
     }
 }
