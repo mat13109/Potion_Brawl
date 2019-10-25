@@ -28,6 +28,9 @@ public class PlayerBehavior : MonoBehaviour
     // Last orientation
     Vector2 lastMovementValues = new Vector2(0, 0);
 
+    AudioSource audioSourceKick;
+    [SerializeField] AudioClip kick, menu;
+
 
     // Once at scene load
     private void Start()
@@ -36,6 +39,9 @@ public class PlayerBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         pauseUIAnimator = GameObject.Find("PauseUI").GetComponent<Animator>();
+
+        audioSourceKick = GetComponent<AudioSource>();
+
     }
 
     public void SetStuck(float force)
@@ -57,13 +63,17 @@ public class PlayerBehavior : MonoBehaviour
         if (context.performed == true) // only on keydown
         {
             playerAnimator.SetTrigger("kick");
+            
+            
             Collider2D[] colliderShoot = Physics2D.OverlapCircleAll(transform.position, 1f);
             for (int i = 0; i < colliderShoot.Length; i++)
             {
                 if (colliderShoot[i].CompareTag("Bomb"))
                 {
                     colliderShoot[i].GetComponent<Rigidbody2D>().AddForce(lastMovementValues.normalized * shootStrength);
-                    Debug.Log((lastMovementValues * shootStrength));
+                    audioSourceKick.clip = kick;
+                    audioSourceKick.volume = .5f;
+                    audioSourceKick.Play();
                 }
                    
             }
@@ -216,8 +226,13 @@ public class PlayerBehavior : MonoBehaviour
     public void GetBackToStartMenu(InputAction.CallbackContext context)
     {
         if (context.performed)
+        {
             pauseUIAnimator.SetBool("paused", !pauseUIAnimator.GetBool("paused"));
-        
+            audioSourceKick.clip = menu;
+            audioSourceKick.volume = 1f;
+            audioSourceKick.Play();
+        }
+
     }
 
     public void QuitMenu()
