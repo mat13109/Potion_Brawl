@@ -10,6 +10,8 @@ public class BombSpawn : MonoBehaviour
     public GameObject bombGLue;
     public GameObject bombHumiliation;
 
+
+
     private float period = 0.0f;
     private float spawnTime;
     private float minTime = 0.5f;
@@ -56,6 +58,7 @@ public class BombSpawn : MonoBehaviour
         //spawnTime = Random.Range(minTime, maxTime);
         //instantiate bomb
         Instantiate(bombType, bombSpawn.transform.position, transform.rotation);
+
 
         //destroy after n sec
         //Destroy(bombType, 2.0f);

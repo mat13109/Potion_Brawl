@@ -291,12 +291,8 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
       propertyPath: movSpeed
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
-    - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 8300000, guid: 4811b0dce04866d4fb216980bdcfd414, type: 3}
     - target: {fileID: 4620664914322892341, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1710,12 +1706,8 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
       propertyPath: movSpeed
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
-    - target: {fileID: 1275901282, guid: fd5d462cf8d7b2046b2e65c848d00932, type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 8300000, guid: 4811b0dce04866d4fb216980bdcfd414, type: 3}
     - target: {fileID: 4620664914322892341, guid: fd5d462cf8d7b2046b2e65c848d00932,
         type: 3}
       propertyPath: m_LocalScale.x
