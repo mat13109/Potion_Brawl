@@ -29,7 +29,7 @@ public class PlayerBehavior : MonoBehaviour
     Vector2 lastMovementValues = new Vector2(0, 0);
 
     AudioSource audioSourceKick;
-    [SerializeField] AudioClip kick, menu;
+    [SerializeField] AudioClip kick, menu,game;
 
 
     // Once at scene load
@@ -202,12 +202,20 @@ public class PlayerBehavior : MonoBehaviour
         StopCoroutine("CooldownToGetUnstunned");
         stunned = true;
         dead = true;
+        
+        
         Invoke("LoadNewScene", 3);
         if (!gm.oneisdead)
         {
             gm.OneIsDead();
             gm.Shake();
             ScoreManager.RemoveOneLifeTo(team);
+            if (PlayerPrefs.GetInt("P2") == 0 || PlayerPrefs.GetInt("P1") == 0)
+            {
+                audioSourceKick.clip = game;
+                audioSourceKick.volume = .5f;
+                audioSourceKick.Play();
+            }
         }
         
         

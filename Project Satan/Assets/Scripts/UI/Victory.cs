@@ -9,16 +9,21 @@ using UnityEngine.SceneManagement;
 public class Victory : MonoBehaviour
 {
     [SerializeField] Text text;
+    [SerializeField] Sprite P1, P2;
+
+    [SerializeField] Image image;
 
     // Start is called before the first frame update
     void Start()
     {
         if (PlayerPrefs.GetInt("P1") > PlayerPrefs.GetInt("P2"))
         {
-            text.text = "Wouah, c'est le joueur 1 qui a gagné !";
+            text.text = "";
+            image.sprite = P1;
         } else
         {
-            text.text = "Wouah, c'est le joueur 2 qui a gagné !";
+            text.text = "";
+            image.sprite = P2;
         }
     }
 
