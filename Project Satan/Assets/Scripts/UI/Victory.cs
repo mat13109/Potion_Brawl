@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
 {
-    [SerializeField] Text text;
+    
     [SerializeField] Sprite P1, P2;
 
     [SerializeField] Image image;
@@ -18,11 +18,11 @@ public class Victory : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("P1") > PlayerPrefs.GetInt("P2"))
         {
-            text.text = "";
+            
             image.sprite = P1;
         } else
         {
-            text.text = "";
+            
             image.sprite = P2;
         }
     }

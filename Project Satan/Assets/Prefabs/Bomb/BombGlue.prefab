@@ -92,6 +92,7 @@ MonoBehaviour:
     type: 3}
   puddle: {fileID: 7402980476160952601, guid: a8a23419496fc83429c1d8386bc4d944, type: 3}
   boum: {fileID: 0}
+  bombinette: {fileID: 0}
   bombRB: {fileID: 4341488874842819266}
   type: glue
 --- !u!212 &-8514250484080634045

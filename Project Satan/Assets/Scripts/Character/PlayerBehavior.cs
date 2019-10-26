@@ -103,12 +103,23 @@ public class PlayerBehavior : MonoBehaviour
     private void Update()
     {
         playerAnimator.SetBool("stunned", stunned);
+        if (pauseUIAnimator.GetBool("paused"))
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+
 
         if (rb.velocity != Vector2.zero)
         {
             playerAnimator.SetFloat("h", rb.velocity.x);
             playerAnimator.SetFloat("v", rb.velocity.y);
             playerAnimator.SetFloat("ismoving", 1f);
+
+
         }
         else
         {
@@ -247,6 +258,7 @@ public class PlayerBehavior : MonoBehaviour
         if (context.performed)
         {
             pauseUIAnimator.SetBool("paused", !pauseUIAnimator.GetBool("paused"));
+            
             audioSourceKick.clip = menu;
             audioSourceKick.volume = 1f;
             audioSourceKick.Play();
