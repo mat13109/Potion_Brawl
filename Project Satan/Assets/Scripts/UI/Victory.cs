@@ -13,6 +13,8 @@ public class Victory : MonoBehaviour
 
     [SerializeField] Image image;
 
+    [SerializeField] AudioClip zdz;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class Victory : MonoBehaviour
             
             image.sprite = P2;
         }
+        Invoke("Music", 3);
     }
 
     // Update is called once per frame
@@ -32,6 +35,14 @@ public class Victory : MonoBehaviour
     {
         
     }
+
+    void Music()
+    {
+        GetComponent<AudioSource>().clip = zdz;
+        GetComponent<AudioSource>().loop = true;
+        GetComponent<AudioSource>().Play();
+    }
+
     private void Awake()
     {
         InputSystem.onDeviceChange +=
