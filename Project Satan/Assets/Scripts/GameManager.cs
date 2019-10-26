@@ -49,14 +49,21 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (menuPauseAnimator.GetBool("paused") == true && readyGo.ready)
+        try
         {
-            Time.timeScale = 0;
-        }
-        if (!menuPauseAnimator.GetBool("paused") == true && readyGo.ready)
+            if (menuPauseAnimator.GetBool("paused") == true && readyGo.ready)
+            {
+                Time.timeScale = 0;
+            }
+            if (!menuPauseAnimator.GetBool("paused") == true && readyGo.ready)
+            {
+                Time.timeScale = 1;
+            }
+        } catch
         {
-            Time.timeScale = 1;
+
         }
+        
     }
 
     public void OneIsDead()

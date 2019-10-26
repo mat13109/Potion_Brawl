@@ -88,10 +88,12 @@ MonoBehaviour:
   explosionRadius: 100
   radius: 3.5
   power: 1000
+  rumble: {fileID: 1491168437686792256, guid: 0d2ec321ed5549840912b1be10d1b951, type: 3}
   particles: {fileID: 4026193245075905397, guid: 6fa895cc67e0a504da3ce897cef0e699,
     type: 3}
   puddle: {fileID: 7159626016851838484, guid: ffe1334a2f4719640956fc4c41d011fb, type: 3}
   boum: {fileID: 2314133482255200260, guid: 5b25a3068f76cda44bd0a127f1cd20e5, type: 3}
+  bombinette: {fileID: 0}
   bombRB: {fileID: 4341488874842819266}
   type: explosion
 --- !u!212 &-8089253312065822846

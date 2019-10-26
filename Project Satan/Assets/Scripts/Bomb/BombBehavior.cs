@@ -11,6 +11,8 @@ public class BombBehavior : MonoBehaviour
     private float minSpeed = 20f;
     private float maxSpeed = 60f;
 
+    [SerializeField] GameObject rumble;
+
     [SerializeField] GameObject particles;
     [SerializeField] GameObject puddle = null;
     public GameObject boum;
@@ -93,6 +95,7 @@ public class BombBehavior : MonoBehaviour
         GameObject explo = Instantiate(boum, transform.localPosition, Quaternion.identity);
         Destroy(explo, 1);
         Destroy(temp, 1);
+        Instantiate(rumble);
         Destroy(gameObject);
     }
 
@@ -101,6 +104,7 @@ public class BombBehavior : MonoBehaviour
         Vector3 explosionPosition = transform.position;
         GameObject gl = Instantiate(puddle, explosionPosition, Quaternion.identity);
         Destroy(gl, 4);
+        Instantiate(rumble);
         Destroy(gameObject);
 
     }
@@ -132,6 +136,7 @@ public class BombBehavior : MonoBehaviour
         GameObject bombi = Instantiate(bombinette, transform.position, Quaternion.identity);
         Destroy(temp, 1);
         Destroy(bombi, 2);
+        Instantiate(rumble);
         Destroy(gameObject);
     }
 

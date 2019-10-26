@@ -88,6 +88,7 @@ MonoBehaviour:
   explosionRadius: 50
   radius: 1.5
   power: 650
+  rumble: {fileID: 1491168437686792256, guid: 0d2ec321ed5549840912b1be10d1b951, type: 3}
   particles: {fileID: 4026193245075905397, guid: e95ea6f33506fcd4a8b3a7e805ba1ae2,
     type: 3}
   puddle: {fileID: 7402980476160952601, guid: a8a23419496fc83429c1d8386bc4d944, type: 3}

@@ -20,6 +20,8 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] float shootStrength;
     [SerializeField] float Stuck = 1.0f;
 
+    [SerializeField] GameObject rumble;
+
 
     // Will contain the rigidbody of the character
     Rigidbody2D rb;
@@ -216,7 +218,8 @@ public class PlayerBehavior : MonoBehaviour
         StopCoroutine("CooldownToGetUnstunned");
         stunned = true;
         dead = true;
-        
+
+        Instantiate(rumble);
         
         Invoke("LoadNewScene", 3);
         if (!gm.oneisdead)
