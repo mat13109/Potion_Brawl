@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
         oneisdead = false;
         cameraBehavior = GameObject.Find("Main Camera").GetComponent<CameraBehavior>();
         menuPauseAnimator = GameObject.Find("PauseUI").GetComponent<Animator>();
+
+        foreach (Gamepad gamepad in Gamepad.all)
+        {
+            gamepad.SetMotorSpeeds(0, 0);
+        }
     }
 
     private void Awake()
